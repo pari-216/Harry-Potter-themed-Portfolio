@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Magical Dark Fantasy Palette */
+    --background: 220 25% 6%;
+    --foreground: 40 20% 90%;
+
+    --card: 220 20% 10%;
+    --card-foreground: 40 20% 90%;
+
+    --popover: 220 25% 8%;
+    --popover-foreground: 40 20% 90%;
+
+    /* Gold - Primary magical accent */
+    --primary: 45 85% 55%;
+    --primary-foreground: 220 25% 8%;
+
+    /* Midnight Blue - Secondary */
+    --secondary: 220 40% 18%;
+    --secondary-foreground: 40 20% 90%;
+
+    /* Muted - Deep charcoal */
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 55%;
+
+    /* Burgundy/Crimson - Accent */
+    --accent: 350 55% 35%;
+    --accent-foreground: 40 20% 95%;
+
+    /* Magical Purple Glow */
+    --magical: 270 60% 50%;
+    --magical-foreground: 40 20% 95%;
+
+    /* Parchment */
+    --parchment: 40 35% 85%;
+    --parchment-foreground: 30 40% 20%;
+
+    /* Ethereal Teal/Cyan for aurora effects */
+    --ethereal: 175 70% 45%;
+    --ethereal-foreground: 220 25% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 15%;
+    --ring: 45 85% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom magical properties */
+    --glow-gold: 0 0 20px hsla(45, 85%, 55%, 0.5);
+    --glow-magical: 0 0 30px hsla(270, 60%, 50%, 0.4);
+    --glow-ethereal: 0 0 25px hsla(175, 70%, 45%, 0.4);
+
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 45 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    @apply font-semibold tracking-wide;
+  }
+}
+
+@layer components {
+  /* Magical text glow effect */
+  .text-glow-gold {
+    text-shadow: 0 0 10px hsla(45, 85%, 55%, 0.6),
+                 0 0 20px hsla(45, 85%, 55%, 0.4),
+                 0 0 30px hsla(45, 85%, 55%, 0.2);
+  }
+
+  .text-glow-magical {
+    text-shadow: 0 0 10px hsla(270, 60%, 50%, 0.6),
+                 0 0 20px hsla(270, 60%, 50%, 0.4),
+                 0 0 30px hsla(270, 60%, 50%, 0.2);
+  }
+
+  .text-glow-ethereal {
+    text-shadow: 0 0 10px hsla(175, 70%, 45%, 0.6),
+                 0 0 20px hsla(175, 70%, 45%, 0.4);
+  }
+
+  /* Glowing border effects */
+  .border-glow-gold {
+    box-shadow: 0 0 15px hsla(45, 85%, 55%, 0.3),
+                inset 0 0 15px hsla(45, 85%, 55%, 0.1);
+  }
+
+  .border-glow-magical {
+    box-shadow: 0 0 20px hsla(270, 60%, 50%, 0.3),
+                inset 0 0 20px hsla(270, 60%, 50%, 0.1);
+  }
+
+  /* Floating animation for cards */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-animation-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+
+  /* Shimmer effect for gold elements */
+  .shimmer {
+    background: linear-gradient(
+      110deg,
+      transparent 20%,
+      hsla(45, 85%, 55%, 0.3) 50%,
+      transparent 80%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  /* Parchment card style */
+  .parchment-card {
+    background-image: url('/src/assets/parchment-texture.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Magical gradient backgrounds */
+  .bg-magical-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(220, 25%, 6%) 0%,
+      hsl(220, 40%, 12%) 50%,
+      hsl(270, 30%, 15%) 100%
+    );
+  }
+
+  .bg-hero-gradient {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      hsla(220, 25%, 6%, 0.7) 50%,
+      hsl(220, 25%, 6%) 100%
+    );
+  }
+
+  /* Spell button styles */
+  .spell-button {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, hsl(45, 85%, 45%) 0%, hsl(45, 85%, 55%) 50%, hsl(40, 80%, 50%) 100%);
+  }
+
+  .spell-button::before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .spell-button:hover::before {
+    transform: translateX(100%);
+  }
+
+  /* Starfield background */
+  .starfield {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, hsla(40, 20%, 90%, 0.8), transparent),
+      radial-gradient(2px 2px at 40px 70px, hsla(40, 20%, 90%, 0.6), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsla(40, 20%, 90%, 0.9), transparent),
+      radial-gradient(2px 2px at 130px 80px, hsla(40, 20%, 90%, 0.5), transparent),
+      radial-gradient(1px 1px at 160px 120px, hsla(40, 20%, 90%, 0.7), transparent);
+    background-size: 200px 200px;
+    animation: twinkle 4s ease-in-out infinite;
+  }
+
+  /* Potion meter styles */
+  .potion-meter {
+    @apply relative overflow-hidden rounded-full;
+    background: linear-gradient(180deg, hsl(220, 20%, 12%) 0%, hsl(220, 25%, 8%) 100%);
+  }
+
+  .potion-fill {
+    @apply absolute left-0 top-0 h-full rounded-full;
+    background: linear-gradient(90deg, hsl(270, 60%, 40%), hsl(270, 60%, 55%), hsl(175, 70%, 45%));
+    box-shadow: 0 0 15px hsla(270, 60%, 50%, 0.5);
+  }
+
+  /* Timeline path styles */
+  .timeline-path {
+    background: linear-gradient(180deg, 
+      hsl(45, 85%, 55%) 0%, 
+      hsl(350, 55%, 35%) 50%, 
+      hsl(270, 60%, 50%) 100%
+    );
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(220, 25%, 8%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(45, 85%, 45%), hsl(45, 85%, 55%));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(45, 85%, 60%);
+  }
+}
+
+@layer utilities {
+  /* Keyframe animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes wandGlow {
+    0%, 100% {
+      box-shadow: 0 0 5px hsla(45, 85%, 55%, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px hsla(45, 85%, 55%, 0.8), 0 0 30px hsla(270, 60%, 50%, 0.4);
+    }
+  }
+
+  @keyframes spellCast {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+      filter: blur(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes letterReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px) rotate(-10deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+
+  @keyframes owlFly {
+    0% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(100px) translateY(-50px) rotate(-10deg);
+    }
+    100% {
+      transform: translateX(300px) translateY(-150px) rotate(-5deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-spell-cast {
+    animation: spellCast 0.8s ease-out forwards;
+  }
+
+  .animate-letter-reveal {
+    animation: letterReveal 0.5s ease-out forwards;
+  }
+
+  .animate-wand-glow {
+    animation: wandGlow 2s ease-in-out infinite;
+  }
+
+  .animate-owl-fly {
+    animation: owlFly 1.5s ease-in-out forwards;
+  }
+}

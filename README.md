@@ -1,2 +1,2 @@
-# Harry-Potter-themed-Portfolio
-This is my portfolio that tells my journey till now.
+# Harry Potter themed portfolio
+I created an harry potter themed portfolio which contains every thin i did till now.
